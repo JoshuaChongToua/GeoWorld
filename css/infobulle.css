@@ -1,0 +1,29 @@
+.conteneur {
+    position: relative;
+    overflow: visible;
+}
+    
+.conteneur .objet_vise {
+    color: blue;
+}
+    
+.conteneur .objet_vise:hover {
+    color: red;
+}
+    
+.conteneur .infobulle {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    width: 200px;
+    height: 100px;
+    background-color: #C1BFBF;
+    opacity: 0;
+    visibility: hidden;
+}
+    
+.conteneur:hover .infobulle {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+}

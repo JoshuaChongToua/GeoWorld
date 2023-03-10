@@ -1,0 +1,27 @@
+/* Couleur de fond */
+body {
+    background-color: #f2f2f2;
+  }
+  
+  /* Titre principal */
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  /* Logo */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  
+  img {
+    width: 10rem;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #999;
+  }
+  

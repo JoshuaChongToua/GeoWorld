@@ -1,0 +1,89 @@
+/* Reset de la page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+p{
+    text-align 
+}
+
+/* Style du corps de la page */
+body {
+    background-color: #363945;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Style du conteneur principal */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    background-color: #61636b;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Ajout de la bordure */
+    transition: all 0.3s ease-in-out;
+    width: 600px; /* Ajout de cette propriété */
+    height: 600px; /* Ajout de cette propriété */
+}
+
+/* Style des champs de saisie */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #bbb;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style du label flottant sur les champs de saisie */
+input[type="text"] + label, input[type="password"] + label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #7289da;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* Style du focus sur les champs de saisie */
+input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label,
+input[type="password"]:focus + label, input[type="password"]:not(:placeholder-shown) + label {
+    transform: translateY(-120%);
+    font-size: 12px;
+    color: #7289da;
+}
+
+/* Style du bouton d'envoi */
+input[type="submit"], input[type="reset"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #A2242F;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+/* Style du focus sur le bouton d'envoi */
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #343148;
+}
