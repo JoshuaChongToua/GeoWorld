@@ -4,7 +4,7 @@
         <title>GeoWorld</title>
     </head>
 
-    <body>
+    <body >
         <?php
         require_once("header.php");
         require_once("javascripts.php");
@@ -12,7 +12,7 @@
 
         <h1>Bienvenue sur GeoWorld</h1>
 
-        <img src="images/logo1.jpg" alt="">
+        <img class="planete"src="images/logo1.jpg" alt="">
     </body>
 
     <footer>

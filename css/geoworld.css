@@ -11,11 +11,11 @@ body {
   }
   
   
-  img {
+  .planete {
     width: 35rem;
     position: static;
     margin-top: 1rem;
-    margin-left: 15px;
+    margin-left: 430px;
     border: 5px solid #fff;
     border-radius: 50%;
     

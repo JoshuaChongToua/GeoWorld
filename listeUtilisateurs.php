@@ -46,24 +46,24 @@
           ?>
 
         
-          <?php foreach($listeUtil as $leSalarie):?>
+          <?php foreach($listeUtil as $util):?>
             <tr>
-              <td><?php echo $leSalarie->id;?> </td>
-              <td><?php echo $leSalarie->nom; ?> </td>
-              <td><?php echo $leSalarie->prenom;?></td>
-              <td><?php echo $leSalarie->login;?> </td>
+              <td><?php echo $util->id;?> </td>
+              <td><?php echo $util->nom; ?> </td>
+              <td><?php echo $util->prenom;?></td>
+              <td><?php echo $util->login;?> </td>
               
-              <?php if($leSalarie->role=="visiteur"): ?>
-                <td style="color:red"><?php echo $leSalarie->role;?> </td>
+              <?php if($util->role=="visiteur"): ?>
+                <td style="color:red"><?php echo $util->role;?> </td>
               
               <?php else: ?>
-              <td><?php echo $leSalarie->role;?> </td>
+              <td><?php echo $util->role;?> </td>
               <?php endif; ?>
               
-              <td><a href="FormUpdateUtil.php?id=<?php echo $leSalarie->id ?>">Update</a> </td>
+              <td><a href="FormUpdateUtil.php?id=<?php echo $util->id ?>">Update</a> </td>
                 
               
-              <td><a href="delete.php?id=<?php echo $leSalarie->id ?>">Delete</a> </td>
+              <td><a href="delete.php?id=<?php echo $util->id ?>">Delete</a> </td>
                 
             </tr>
           <?php endforeach; ?>

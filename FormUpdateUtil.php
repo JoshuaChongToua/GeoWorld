@@ -7,25 +7,25 @@ session_start ();
  //on récupère et on vérifie que l'id figure dans l'URL
 if ( $_SESSION['role']=='admin'){
     $id = $_GET['id'] ;
-    $salarie = getSalarie($id);
+    $salarie = getUtil($id);
 }
 else{
-    $salarie= getSalarie($_SESSION['identifiant']);
+    $salarie= getUtil($_SESSION['identifiant']);
 }
 
 ?>
+<link href="css/form_update_util.css" rel="stylesheet" media="screen">
 <form action="updateutil.php" method="get" >
 <fieldset>
-<legend> <i>Utilisateur</i></legend>
-Nom :
+<label>Nom : </label>
 <input type="text" name="nom" required value="<?php echo $salarie->nom; ?>" /> <br />
-Prénom :
+<label>Prénom :</label>
 <input type="text" name="prenom" required value="<?php echo $salarie->prenom; ?>" /> <br />
 
-Login:
+<label>Login:</label>
 <input type="text" name="login" value="<?php echo $salarie->login; ?>"/> <br />
 
-Role:
+<label>Role:</label>
  <select name="role">
  <option value="prof">prof</option>
  <option value="eleve">eleve</option>
