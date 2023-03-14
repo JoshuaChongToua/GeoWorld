@@ -9,17 +9,25 @@
     
 .conteneur .objet_vise:hover {
     color: red;
+    visibility: visible;
+    opacity: 1;
 }
     
 .conteneur .infobulle {
     position: absolute;
-    top: 20px;
-    left: 80px;
-    width: 200px;
-    height: 100px;
-    background-color: #C1BFBF;
-    opacity: 0;
+    width: auto;
+    min-width: max-content;
+    max-width: max-content; /* Largeur maximale de l'infobulle */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
     visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
     
 .conteneur:hover .infobulle {
@@ -27,3 +35,5 @@
     visibility: visible;
     z-index: 999;
 }
+
+ 

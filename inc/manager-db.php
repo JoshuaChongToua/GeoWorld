@@ -137,7 +137,7 @@ function getAuthentification($login,$pass){
     }
    }
 
-   function getAllSalaries(){
+   function getAllUtil(){
     global $pdo;
     $query = 'SELECT * FROM identification ';
     try {
@@ -149,7 +149,7 @@ function getAuthentification($login,$pass){
     }
 }
 
-    function getSalarie($id){
+    function getUtil($id){
         global $pdo;
         $requete = "SELECT * FROM identification where id = :id";
         try{
@@ -179,3 +179,5 @@ function getAuthentification($login,$pass){
         }
     }
        
+
+    

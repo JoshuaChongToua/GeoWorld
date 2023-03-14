@@ -14,6 +14,7 @@
 
 ?>
 <link href="css/infobulle.css" rel="stylesheet" media="screen">
+<link href="css/index.css" rel="stylesheet" media="screen">
 <?php 
 
 require_once 'header.php'; 
@@ -55,6 +56,7 @@ $desPays = getCountriesByContinent($continent);
     <h1 onclick="info(this)">Les pays en <?php echo"$continent"; ?></h1>
     <div>
      <table class="table">
+       <label class="haut">
          <tr>
            <th>Nom</th>
            <th>Population</th>
@@ -62,6 +64,7 @@ $desPays = getCountriesByContinent($continent);
            <th>Langues parlées</th>
 
          </tr>
+        </label>
        <?php
         // $desPays est un tableau dont les éléments sont des objets représentant
         // des caractéristiques d'un pays (en relation avec les colonnes de la table Country)

@@ -13,7 +13,7 @@
         
         
 
-        $listeSalaries = getAllSalaries();
+        $listeUtil = getAllUtil();
         // Create connection
         
         if (isset($_SESSION['nom']) && isset($_SESSION['role'])) {
@@ -46,7 +46,7 @@
           ?>
 
         
-        <?php foreach($listeSalaries as $leSalarie):?>
+          <?php foreach($listeUtil as $leSalarie):?>
             <tr>
               <td><?php echo $leSalarie->id;?> </td>
               <td><?php echo $leSalarie->nom; ?> </td>
@@ -66,11 +66,11 @@
               <td><a href="delete.php?id=<?php echo $leSalarie->id ?>">Delete</a> </td>
                 
             </tr>
-        <?php endforeach; ?>
+          <?php endforeach; ?>
         </table>
 
         <div class="ajouter-btn-container">
-          <button class="ajouter-btn" onclick="location.href='formSQL.html'">Ajouter</button>
+          <button class="ajouter-btn" onclick="location.href='formSQL.php'">Ajouter</button>
         </div>
               
 

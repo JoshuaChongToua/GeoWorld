@@ -1,6 +1,8 @@
 <html>
     <head>
-        <?php session_start(); 
+    <link href="css/recherche.css" rel="stylesheet" media="screen">
+        <?php 
+        
         require_once("header.php");
         require_once("inc/manager-db.php");
         require_once("inc/connect-db.php");

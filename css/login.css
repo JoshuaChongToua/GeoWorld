@@ -1,14 +1,3 @@
-/* Reset de la page */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-
-
-/* Style du corps de la page */
 body {
     background-color: #363945;
     display: flex;
@@ -20,6 +9,8 @@ body {
 
 /* Style du conteneur principal */
 form {
+    position: static;
+    margin-left: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,12 +21,13 @@ form {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc; /* Ajout de la bordure */
     transition: all 0.3s ease-in-out;
-    width: 600px; /* Ajout de cette propriété */
-    height: 600px; /* Ajout de cette propriété */
+    width: 300px; /* Ajout de cette propriété */
+    height: 300px; /* Ajout de cette propriété */
 }
 
 /* Style des champs de saisie */
 input[type="text"], input[type="password"] {
+    
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -43,7 +35,7 @@ input[type="text"], input[type="password"] {
     border-bottom: 1px solid #bbb;
     background-color: transparent;
     font-size: 16px;
-    color: #333;
+    color: #702929;
 }
 
 /* Style du label flottant sur les champs de saisie */
@@ -84,4 +76,25 @@ input[type="submit"], input[type="reset"] {
 /* Style du focus sur le bouton d'envoi */
 input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #343148;
+    
 }
+
+.ajouter-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #7289da;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 500px;
+    
+  }
+  
+  .ajouter-btn:hover {
+    background-color: #343148;
+  }

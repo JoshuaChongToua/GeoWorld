@@ -1,7 +1,7 @@
 <html>
     
-    <link href="css/form.css" rel="stylesheet" media="screen">
-    <p>Pour vous inscrire :<br></p>
+    <link href="css/inscription.css" rel="stylesheet" media="screen">
+    
     <form method="get" action="insertSQL.php">
         Nom : <input type="text" name="nom" class="nom"><br>
         Prenom : <input type="text" name="prenom"><br>

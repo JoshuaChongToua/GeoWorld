@@ -1,8 +1,10 @@
 table {
+    font-family:  cursive;
     margin: 0 auto; /* pour centrer le tableau horizontalement */
     background-color: #F8D7DA; /* couleur de fond du tableau */
     padding: 20px; /* pour ajouter de l'espace autour du tableau */
     border-collapse: collapse;
+    
   }
   .util {
     background-color: #F2F2F2; /* couleur de fond de la page */
@@ -11,6 +13,19 @@ table {
   a{
     margin-left: 15px;
   }
+
+  td,th{
+    border: 1px solid black;
+    
+    text-align: center;
+  }
+
+  tr{
+    text-align: center;
+    
+  }
+
+  
 
   .ajouter-btn {
     display: block;

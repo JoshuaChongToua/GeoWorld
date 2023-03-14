@@ -1,6 +1,6 @@
 <html>
     <head>
-
+    <link href="css/login.css" rel="stylesheet" media="screen">
     </head>
 
     <body>
@@ -9,7 +9,10 @@
                     Votre mot de passe : <input type="password" name="pwd"><br />
                     <input type="submit" value="Connexion">
             </form>
-            <a href="index.php">Revenir a l'accueil</a>
+            
+        <div class="ajouter-btn-container">
+          <button class="ajouter-btn" onclick="location.href='index.php'">Revenir à l'accueil</button>
+        </div>
     </body>
                 
 

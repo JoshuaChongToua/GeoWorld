@@ -24,6 +24,7 @@
   <!-- Bootstrap core CSS -->
   <link href="assets/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
+  <link href="css/geoworld.css" rel="stylesheet" media="screen">
   
   
 
@@ -87,10 +88,11 @@
           <li class="nav-item">
               <a class="nav-link" href="listeUtilisateurs.php"> Liste Utilisateurs</a>
           </li>
+      
         <?php endif; ?>
 
         <li class="nav-item">
-          <a class="nav-link" href="formSignup.html"> Sign Up</a>
+          <a class="nav-link" href="formSignup.php"> Sign Up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Log in</a>

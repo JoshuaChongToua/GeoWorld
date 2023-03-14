@@ -1,6 +1,7 @@
 <html>
     <head>
         <?php session_start() ?>
+        <link href="css/bienvenue.css" rel="stylesheet" media="screen">
         <title>Bienvenue</title>
     </head>
 

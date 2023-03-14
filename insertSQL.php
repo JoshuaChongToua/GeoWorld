@@ -23,7 +23,7 @@
     $statement->bindParam(':role', $role, PDO::PARAM_STR);
     $statement->execute();
     //On renvoie vers la liste des salaries
-    header("Location:listeUtilisateursSQL.php");
+    header("Location:listeUtilisateurs.php");
     }
     catch(PDOException $e){
     echo 'Erreur : '.$e->getMessage();

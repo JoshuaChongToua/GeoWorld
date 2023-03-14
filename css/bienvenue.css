@@ -1,0 +1,38 @@
+/* style du corps de la page */
+body {
+    font-family: cursive;
+    background-color: #f3efef;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* style du titre */
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+  }
+  
+  /* style du paragraphe */
+  p {
+    font-size: 32px;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  /* style des liens */
+  a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+

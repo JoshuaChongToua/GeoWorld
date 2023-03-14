@@ -1,4 +1,5 @@
 <?php
+
  require_once('inc/manager-db.php');
  // on teste si nos variables sont définies et remplies
  if (isset($_POST['login']) && isset($_POST['pwd']) && !empty($_POST['login'])&& !
@@ -22,11 +23,13 @@ header ('location: index.php');
  //si le résultat est false on redirige vers la page d'authentification
  else{
  header ('location: authentification.php');
+ echo"login ou mot de passe incorrect";
  }
  }
 
  //si nos variables ne sont pas renseignées on redirige vers la page d'authentification
  else {
  header ('location: authentification.php');
+ echo"login ou mot de passe incorrect";
  }
  ?> 

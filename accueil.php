@@ -1,6 +1,6 @@
 <html>
     <head>
-    <link href="css/accueil.css" rel="stylesheet" media="screen">
+    <link href="css/geoworld.css" rel="stylesheet" media="screen">
         <title>GeoWorld</title>
     </head>
 
@@ -12,6 +12,10 @@
 
         <h1>Bienvenue sur GeoWorld</h1>
 
-        <img src="images/planete.jpg" alt="">
+        <img src="images/logo1.jpg" alt="">
     </body>
+
+    <footer>
+        <?php require_once("footer.php"); ?>
+    </footer>
 </html>
