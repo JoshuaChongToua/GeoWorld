@@ -28,7 +28,7 @@ if (isset($_POST['login']) && isset($_POST['pwd']) && !empty($_POST['login'])&& 
     // on appele la fonction getAuthentification en lui passant en paramètre le login et password
     //la fonction retourne les caractéristiques du salaries si il est connu sinon elle retourne false
     $result = getAuthentification($_POST['login'], $_POST['pwd']);
-    print_r($result);
+    //print_r($result);
     // si le résulat n'est pas false
     if ($result) {
         // on la démarre la session
