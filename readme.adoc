@@ -40,8 +40,8 @@ _[red]#Configurer le dropdown#_
 
 _[red]#Test qualité du code : PHPSniffer#_
 
-image::/img2/code.png[code, , 200]
-image::/img2/erreur.png[code, , 300]
+image::/img2/code.png[code, , 500]
+image::/img2/erreur.png[code, , 500]
 
 == Développement du Site
 
