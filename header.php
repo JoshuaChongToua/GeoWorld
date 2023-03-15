@@ -71,9 +71,9 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
           
             <?php foreach($listeContinents as $cont): ?>
-            
+
               <a class="dropdown-item" href="index.php?continent=<?php echo"$cont->Continent"; ?>"><?php echo"$cont->Continent"; ?></a>
-            
+              
             <?php endforeach ?>
             
           </div>
@@ -84,7 +84,7 @@
           </a>
         </li>
 
-        <?php if($_SESSION['role']=='admin'): ?>
+        <?php if($_SESSION['role']=='admin') : ?>
           <li class="nav-item">
               <a class="nav-link" href="listeUtilisateurs.php"> Liste Utilisateurs</a>
           </li>

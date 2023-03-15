@@ -95,6 +95,13 @@ function getCountriesByContinent($continent)
     return $prep->fetchAll();
 }
 
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $pays le nom d'un pays
+ * 
+ * @return array tableau d'objets (des pays)
+ */
 function getLangue($pays)
 {
     global $pdo;
@@ -105,7 +112,17 @@ function getLangue($pays)
     return $prep->fetchAll();
 }
 
-function getAuthentification($login,$pass){
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $login le login d'un utilisateur 
+ * @param string $pass le mot de passe d'un utilisateur
+ * 
+ * 
+ * @return array tableau d'objets (des pays)
+ */
+function getAuthentification($login,$pass)
+{
     global $pdo;
     $query = "SELECT * FROM identification WHERE login=:login and password=:pass";
     $prep = $pdo->prepare($query);
@@ -113,71 +130,97 @@ function getAuthentification($login,$pass){
     $prep->bindValue(':pass', $pass, PDO::PARAM_STR);
     $prep->execute();
     // on vérifie que la requête ne retourne qu'une seule ligne
-    if($prep->rowCount() == 1){
-    $result = $prep->fetch();
-    return $result;
+    if ($prep->rowCount() == 1) {
+        $result = $prep->fetch();
+        return $result;
+    } else {
+            return false;
     }
-    else
-    return false;
-   }
+}
 
-
-   function getCountry($id){
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $id id d'un pays
+ * 
+ * @return array tableau d'objets (des pays)
+ */
+function getCountry($id)
+{
     global $pdo;
     $requete = "SELECT * FROM country where id = :id";
     try{
-    $prep = $pdo->prepare($requete);
-    $prep->bindParam(':id', $id, PDO::PARAM_INT);
-    $prep->execute();
-    $result = $prep->fetch();
-    return $result;
+        $prep = $pdo->prepare($requete);
+        $prep->bindParam(':id', $id, PDO::PARAM_INT);
+        $prep->execute();
+        $result = $prep->fetch();
+        return $result;
     }
     catch ( Exception $e ) {
-        die ("erreur dans la requete ".$e->getMessage());
+        die("erreur dans la requete ".$e->getMessage());
     }
-   }
-
-   function getAllUtil(){
+}
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @return array tableau d'objets (des pays)
+ */
+function getAllUtil()
+{
     global $pdo;
     $query = 'SELECT * FROM identification ';
     try {
         $result = $pdo->query($query)->fetchAll();
         return $result;
     }
-        catch ( Exception $e ) {
-        die ("erreur dans la requete ".$e->getMessage());
+    catch ( Exception $e ) {
+        die("erreur dans la requete ".$e->getMessage());
     }
 }
-
-    function getUtil($id){
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $id id d'un pays
+ * 
+ * @return array tableau d'objets (des pays)
+ */
+function getUtil($id)
+{
         global $pdo;
         $requete = "SELECT * FROM identification where id = :id";
-        try{
+    try{
         $prep = $pdo->prepare($requete);
         $prep->bindParam(':id', $id, PDO::PARAM_INT);
         $prep->execute();
         $result = $prep->fetch();
         return $result;
-        }
-        catch ( Exception $e ) {
-            die ("erreur dans la requete ".$e->getMessage());
-        }
     }
-
-    function getRecherche($name){
+    catch ( Exception $e ) {
+            die("erreur dans la requete ".$e->getMessage());
+    }
+}
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $name le nom d'un pays
+ * 
+ * @return array tableau d'objets (des pays)
+ */
+function getRecherche($name)
+{
         global $pdo;
         $requete= "SELECT * FROM country where Name=:nom";
-        try{
+    try{
             $prep = $pdo->prepare($requete);
             $prep->bindParam(':nom', $name, PDO::PARAM_STR);
             $prep->execute();
             $result = $prep->fetchAll();
             return $result;
-        }
-        catch ( Exception $e ) {
-            die ("erreur dans la requete ".$e->getMessage());
-        }
     }
+    catch ( Exception $e ) {
+            die("erreur dans la requete ".$e->getMessage());
+    }
+}
        
 
     

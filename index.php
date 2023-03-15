@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Home Page
  *
@@ -19,11 +19,10 @@
 
 require_once 'header.php'; 
 if (isset($_SESSION['nom']) && isset($_SESSION['role'])) {
-  echo "<p style=text-align:right;>Bienvenue : ".$_SESSION['nom']."(".$_SESSION['role'].")";
-  echo '<br><a href="./logout.php">Deconnexion</a></p>';
-  }
-else{
-  $_SESSION['role']='visiteur';
+    echo "<p style=text-align:right;>Bienvenue : ".$_SESSION['nom']."(".$_SESSION['role'].")";
+    echo '<br><a href="./logout.php">Deconnexion</a></p>';
+} else {
+    $_SESSION['role']='visiteur'; 
 }
 
 ?>
@@ -79,28 +78,28 @@ $desPays = getCountriesByContinent($continent);
                 $langue=getLangue($nomPays);
                 $capitale = getCapital($cap); 
                 ?>
-                <?php if(empty($capitale)): ?>
+                <?php if(empty($capitale)) : ?>
                   <td style="color:#C6C4C4";> VIDE </td>
                 <?php endif; ?>
-                <?php if(!empty($capitale)): ?>
+                <?php if(!empty($capitale)) : ?>
                   <td> <?php echo $capitale[0]->Name ?></td>
                 <?php endif; ?>
                 
 
                 <?php foreach($langue as $language):?>
-                <?php $first_langue= $language->Name; ?>
-                <?php break; ?>
+                    <?php $first_langue= $language->Name; ?>
+                    <?php break; ?>
                 <?php endforeach?>
                 
-                <?php if(empty($langue)): ?>
+                <?php if(empty($langue)) : ?>
                   <td style="color:#C6C4C4";> VIDE </td>
                 <?php endif;?>
 
-                <?php if(!empty($langue)): ?>
+                <?php if(!empty($langue)) : ?>
                 <td> <span class="conteneur"><span class="objet_vise"><?php echo"$first_langue ..." ?> </span><div class="infobulle">
-                <?php foreach($langue as $language):?>
-                <?php echo "- $language->Name" ?> <br>
-                <?php endforeach?>
+                    <?php foreach($langue as $language):?>
+                        <?php echo "- $language->Name" ?> <br>
+                    <?php endforeach?>
                 </div></span> </td>
 
                 <?php endif; ?>
@@ -110,12 +109,12 @@ $desPays = getCountriesByContinent($continent);
 
                 
 
-                <?php if($_SESSION['role']=='admin'): ?>
+                <?php if($_SESSION['role']=='admin') : ?>
                     
                     <td><a href="FormUpdate.php?id=<?php echo $pays->id ?>?continent=<?php echo $continent ?>">Update</a> </td>
                 <?php endif; ?>
 
-                <?php if($_SESSION['role']=='prof'): ?>
+                <?php if($_SESSION['role']=='prof') : ?>
                   <td><a href="FormUpdate.php?id=<?php echo $pays->id ?>">Update</a> </td>
                 <?php endif; ?>
           </tr>

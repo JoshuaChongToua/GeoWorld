@@ -1,9 +1,13 @@
 table {
+    width: 100%; /* permet au tableau de prendre 100% de la largeur de son conteneur */
+    max-width: 1200px; /* limite la largeur maximale du tableau à 1200 pixels */
+    font-size: 16px; 
     font-family:  cursive;
     margin: 0 auto; /* pour centrer le tableau horizontalement */
     background-color: #F8D7DA; /* couleur de fond du tableau */
     padding: 20px; /* pour ajouter de l'espace autour du tableau */
     border-collapse: collapse;
+    
     
   }
   .util {

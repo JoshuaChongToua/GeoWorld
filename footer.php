@@ -3,6 +3,7 @@
  * Fragment Page Footer
  *
  * PHP version 7
+ * 
  *
  * @category  Page_Footer
  * @package   Application
