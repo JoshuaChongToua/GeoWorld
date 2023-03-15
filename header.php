@@ -71,9 +71,9 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
           
             <?php foreach($listeContinents as $cont): ?>
-            
+
               <a class="dropdown-item" href="index.php?continent=<?php echo"$cont->Continent"; ?>"><?php echo"$cont->Continent"; ?></a>
-            
+              
             <?php endforeach ?>
             
           </div>

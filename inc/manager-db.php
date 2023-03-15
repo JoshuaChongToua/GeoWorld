@@ -95,6 +95,13 @@ function getCountriesByContinent($continent)
     return $prep->fetchAll();
 }
 
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $pays le nom d'un pays
+ * 
+ * @return array tableau d'objets (des pays)
+ */
 function getLangue($pays)
 {
     global $pdo;
@@ -105,6 +112,15 @@ function getLangue($pays)
     return $prep->fetchAll();
 }
 
+/**
+ * Obtenir la liste de tous les pays référencés d'un continent donné
+ *
+ * @param string $login le login d'un utilisateur 
+ * @param string $pass le mot de passe d'un utilisateur
+ * 
+ * 
+ * @return array tableau d'objets (des pays)
+ */
 function getAuthentification($login,$pass){
     global $pdo;
     $query = "SELECT * FROM identification WHERE login=:login and password=:pass";
@@ -113,13 +129,13 @@ function getAuthentification($login,$pass){
     $prep->bindValue(':pass', $pass, PDO::PARAM_STR);
     $prep->execute();
     // on vérifie que la requête ne retourne qu'une seule ligne
-    if($prep->rowCount() == 1){
-    $result = $prep->fetch();
-    return $result;
+    if ($prep->rowCount() == 1) {
+        $result = $prep->fetch();
+        return $result;
+    } else {
+            return false;
     }
-    else
-    return false;
-   }
+}
 
 
    function getCountry($id){
