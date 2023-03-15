@@ -1,0 +1,171 @@
+
+= Compte-rendu GEOWORLD
+
+== Sommaire
+
+* Introduction
+* Développement du site web
+* CSS
+
+== Introduction
+
+
+
+Dans un premier temps, avant de concevoir notre site internet, nous avons fait des TD PRELIMINAIRES, individuellement, qui étaient mis sur Trello.
+Plusieurs tâches nous étaient demandées :
+
+_[red]#Création de notre base de donnée#_
+
+image::../../img2/create_db.png[db,200,50]
+image::../../img2/insertion-data.PNG[db,350,50]
+
+
+_[red]#Afficher la liste des pays d'un continent demandée#_
+[source, php]
+----
+
+$desPays = getCountriesByContinent($continent);
+<?php foreach($desPays as $pays): ?>
+          <tr>
+              <td> <?php echo $pays->Name ?></td>
+              <td> <?php echo $pays->Population ?></td>
+<?php endforeach?>
+----
+_[red]#Configurer le dropdown#_
+[source, php]
+----
+<a class="dropdown-item" href="index.php?continent=<?php echo"$cont->Continent"; ?>">
+<?php echo"$cont->Continent"; ?></a>
+----
+
+_[red]#Test qualité du code : PHPSniffer#_
+
+image::../../img2/code.png[code, 1000, 300]
+image::../../img2/erreur.png[code, , 300]
+
+== Développement du Site
+
+*/!\ Avant toute utilisation du site internet il faut créer une table "identification" dans la db geoworld :*
+[source, mysql]
+----
+CREATE TABLE `identification` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`nom` VARCHAR(50) NULL DEFAULT NULL,
+	`prenom` VARCHAR(50) NULL DEFAULT NULL,
+	`login` VARCHAR(50) NULL DEFAULT NULL,
+	`password` VARCHAR(50) NULL DEFAULT NULL,
+	`role` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=3
+;
+----
+
+
+Suite à notre tableau des pays d'un continent saisi, nous avons ajoutés la population ainsi que les langues principalement parlées :
+[source, php]
+----
+ $langue=getLangue($nomPays);
+----
+[source, php]
+----
+<?php foreach($langue as $language):?>
+                <?php $first_langue= $language->Name; ?>
+                <?php break; ?>
+                <?php endforeach?>
+
+                <?php if(empty($langue)): ?>
+                  <td style="color:#C6C4C4";> VIDE </td>
+                <?php endif;?>
+
+                <?php if(!empty($langue)): ?>
+                <td> <span class="conteneur"><span class="objet_vise"><?php echo"$first_langue ..." ?> </span><div class="infobulle">
+                <?php foreach($langue as $language):?>
+                <?php echo "- $language->Name" ?> <br>
+                <?php endforeach?>
+                </div></span> </td>
+
+----
+[source, php]
+----
+<?php
+$capitale = getCapital($cap);
+                ?>
+                <?php if(empty($capitale)): ?>
+                  <td style="color:#C6C4C4";> VIDE </td>
+                <?php endif; ?>
+                <?php if(!empty($capitale)): ?>
+                  <td> <?php echo $capitale[0]->Name ?></td>
+                <?php endif; ?>
+----
+
+Ensuite, nous avons ajoutés la connexion des comptes à partir du login et du password que l'on rentre sur la page login via le site :
+
+[source, html]
+----
+ <form action="login.php" method="post">
+                    Votre login : <input type="text" name="login"><br />
+                    Votre mot de passe : <input type="password" name="pwd"><br />
+                    <input type="submit" value="Connexion">
+</form>
+----
+si le login et le mot de passe ne correspond pas à notre base de donnée, alors l'utilisateur devra créer un compte et entrer plusieurs informations :
+[source, html]
+----
+ <form method="get" action="insertSQL.php">
+        Nom : <input type="text" name="nom" class="nom"><br>
+        Prenom : <input type="text" name="prenom"><br>
+        Login:<input type="text" name="login"><br>
+        MDP:<input type="password" name="password"><br>
+</form>
+----
+
+En s'incrivant, toute individus à comme rôle "visiteur", ce rôle permet simplement de visiter le site.
+Seul l'administrateur peut modifier le rôle de n'importe quel utilisateur.
+
+[source, html]
+----
+Role:
+ <select name="role">
+ <option value="prof">prof</option>
+ <option value="eleve">eleve</option>
+ <option value="admin">admin</option>
+ </select>
+----
+
+Ensuite, ce code va nous permettre de mettre à jour les données :
+[source, html]
+----
+<label>Nom :</label>
+    <input type="text" name="Name" required value="<?php echo $nomPays->Name; ?>" /> <br />
+
+<label>Population :</label>
+    <input type="text" name="Population" required value="<?php echo $nomPays->Population; ?>" /> <br />
+
+<label>Capital :</label>
+    <input type="text" name="Capital" value="<?php echo $nomCap; ?>"/> <br />
+----
+
+== CSS
+
+En ce qui concerne la partie esthétique de notre site nous avons utilisé le langage CSS; voici un exemple montrant la forme du code :
+
+[source, css]
+----
+
+  /* style du titre */
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+  }
+----
+
+
+====== CHONG TOUA Joshua
+===== SIMOES David
+===== BEN BOUBAKER Sheinez
+==== lien github : https://github.com/JoshuaChongToua/GeoWorld.git
