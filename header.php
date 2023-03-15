@@ -84,7 +84,7 @@
           </a>
         </li>
 
-        <?php if($_SESSION['role']=='admin'): ?>
+        <?php if($_SESSION['role']=='admin') : ?>
           <li class="nav-item">
               <a class="nav-link" href="listeUtilisateurs.php"> Liste Utilisateurs</a>
           </li>

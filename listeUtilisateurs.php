@@ -5,24 +5,46 @@
 
   <body class="util">
       <?php
-       
-        //on se connecte à la base Adherent
-        require_once("inc/connect-db.php");
-        require_once("inc/manager-db.php");
-        require_once("header.php");
+       /** 
+        * On se connecte à la base Adherent
+        
+        * Ce script est composé de fonctions d'exploitation des données
+        * détenues pas le SGBDR MySQL utilisées par la logique de l'application.
+        *
+        * C'est le seul endroit dans l'application où a lieu la communication entre
+        * la logique métier de l'application et les données en base de données, que
+        * ce soit en lecture ou en écriture.
+        *
+        * PHP version 7
+        *
+        * @category  Database_Access_Function
+        * @package   Application
+        * @author    SIO-SLAM <sio@ldv-melun.org>
+        * @copyright 2019-2023 SIO-SLAM
+        * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
+        * @link      https://github.com/sio-melun/geoworld
+        */
+
+        /**
+         *  Les fonctions dépendent d'une connection à la base de données,
+         *  cette fonction est déportée dans un autre script.
+         */
+        
+        require_once "inc/connect-db.php";
+        require_once "inc/manager-db.php";
+        require_once "header.php";
         
         
 
         $listeUtil = getAllUtil();
-        // Create connection
+         // Create connection
         
-        if (isset($_SESSION['nom']) && isset($_SESSION['role'])) {
+      if (isset($_SESSION['nom']) && isset($_SESSION['role'])) {
           echo "<p style=text-align:right;>Bienvenue : ".$_SESSION['nom']."(".$_SESSION['role'].")";
           echo '<br><a href="./logout.php">Deconnexion</a></p>';
-          }
-        else{
+      } else {
           $_SESSION['role']='visiteur';
-        }
+      }
         ?>
 
 
@@ -41,9 +63,9 @@
           </tr>
 
           <?php
-          $requete = "SELECT * FROM identification";
-          $result=$pdo->query($requete);
-          ?>
+            $requete = "SELECT * FROM identification";
+            $result=$pdo->query($requete);
+            ?>
 
         
           <?php foreach($listeUtil as $util):?>
@@ -53,7 +75,7 @@
               <td><?php echo $util->prenom;?></td>
               <td><?php echo $util->login;?> </td>
               
-              <?php if($util->role=="visiteur"): ?>
+                  <?php if($util->role=="visiteur") : ?>
                 <td style="color:red"><?php echo $util->role;?> </td>
               
               <?php else: ?>
@@ -77,8 +99,8 @@
        <?php 
         require_once 'javascripts.php';
 
-      ?>
-  </body>
+        ?>
+        </body>
         
 
-</html>
+      </html>
