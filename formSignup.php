@@ -37,20 +37,9 @@
         Prenom : <input type="text" name="prenom" required placeholder="First Name" autocomplete="off"><br>
         Login:<input type="text" name="login" required placeholder="Login" autocomplete="off"><br>
         MDP:<input type="password" name="password" required placeholder="Password" autocomplete="off"><br>
-        
-        
-
-        
-    
-
-
-
         <input type="hidden" name="role" value="visiteur">
         <input type="submit" name="submit" value="VALIDER">
-        <input type="reset" value="EFFACER" /> 
-
-        
-    
+        <input type="reset" value="EFFACER" > 
     </form>
 
 
