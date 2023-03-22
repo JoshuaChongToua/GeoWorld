@@ -45,14 +45,14 @@ _[red]#Configurer le dropdown#_
 
 _[red]#Test qualité du code : PHPSniffer#_
 
-image::/img2/code.png[]
-image::/img2/erreur.png[]
+image::/img2/code.PNG[]
+image::/img2/erreur.PNG[]
 
 _[red]#IDE utilisé#_
 
 Durant le projet nous avons utilisé l'IDE Visual Studio CODE
 
-image::/img2/vcide.png[]
+image::/img2/vcide.PNG[]
 
 == Développement du Site
 
@@ -101,11 +101,11 @@ Suite à notre tableau des pays d'un continent choisi, nous avons ajoutés la po
 ----
 Voici ce que nous permet d'obtenir le programme ci-dessus:
 
-image::/img2/langueUI.png[]
+image::/img2/langueUI.PNG[]
 
 Le code qui se situe dans la balise span ci-dessus nous permet d'obtenir ceci lorsque l'on pointe le curseur sur la langue:
 
-image::/img2/infobulle.png[align=center]
+image::/img2/infobulle.PNG[align=center]
 
 La fonction suivante nous permet d'obtenir le nom de la ville, qui est la capitale d'un pays, grâce à son id.
 [source,php]
