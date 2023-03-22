@@ -134,7 +134,7 @@ $capitale = getCapital($cap);
                 <?php endif; ?>
 ----
 
-image::/img2/capitalUI.png[]
+image::/img2/capitalUI.PNG[]
 
 Ensuite, nous avons ajoutés la connexion des comptes à partir du login et du password que l'on rentre sur la page login via le site :
 
@@ -147,7 +147,7 @@ Ensuite, nous avons ajoutés la connexion des comptes à partir du login et du p
 </form>
 ----
 
-image::/img2/login.png[align=center]
+image::/img2/login.PNG[align=center]
 
 Si l'utilisateur ne possède pas de compte, il peut créer un compte et entrer plusieurs informations :
 [source, html]
@@ -167,7 +167,7 @@ Si l'utilisateur ne possède pas de compte, il peut créer un compte et entrer p
 </form>
 ----
 
-image::/img2/inscription.png[align=center]
+image::/img2/inscription.PNG[align=center]
 
 En s'incrivant, toute individus à comme rôle "visiteur", ce rôle permet simplement de visiter le site.
 Seul l'administrateur peut modifier les données et le rôle de n'importe quel utilisateur.
@@ -185,11 +185,11 @@ est "admin":
 <?php endif; ?>
 ----
 
-image::/img2/button.png[]
+image::/img2/button.PNG[]
 
 En cliquant sur "Liste utilisateurs" on arrive sur cette page:
 
-image::/img2/listeutil.png[]
+image::/img2/listeutil.PNG[]
 
 Ici, l'administrateur va pouvoir modifier les données des utilsateurs en cliquant sur "update".
 
@@ -213,12 +213,12 @@ Ici, l'administrateur va pouvoir modifier les données des utilsateurs en cliqua
 </form>
 ----
 
-image::/img2/updateutil.png[align=center]
+image::/img2/updateutil.PNG[align=center]
 
 Ensuite, en ce qui concerne les données des pays, seul les utilisateurs qui possèdent le role "prof" ou "admin"
 vont pouvoir mettre à jour les données à l'aide du button update:
 
-image::/img2/updatepays.png[]
+image::/img2/updatepays.PNG[]
 
 [source, html]
 ----
@@ -232,7 +232,7 @@ image::/img2/updatepays.png[]
     <input type="text" name="Capital" value="<?php echo $nomCap; ?>"/> <br />
 ----
 
-image::/img2/formupdatepays.png[align=center]
+image::/img2/formupdatepays.PNG[align=center]
 
 == CSS
 
@@ -264,8 +264,16 @@ h1{
 ----
 Le code ci-dessus nous permet d'obtenir le fond de couleur du tableau ci-dessous:
 
-image::/img2/cssindex.png[]
+image::/img2/cssindex.PNG[]
 
+== Extra
+
+La barre de recherche est exploitable, il suffit de rentrer le nom d'un pays et ses informations vous seront
+retournés:
+
+image::/img2/barre.png[]
+
+== Lien
 
 lien github : https://github.com/JoshuaChongToua/GeoWorld.git
 
