@@ -52,7 +52,7 @@ _[red]#IDE utilisé#_
 
 Durant le projet nous avons utilisé l'IDE Visual Studio CODE
 
-image:://img2/vcide.PNG[]
+image::img2/vcide.PNG[]
 
 == Développement du Site
 
