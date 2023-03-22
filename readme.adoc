@@ -21,8 +21,8 @@ Plusieurs tâches nous étaient demandées :
 
 _[red]#Création de notre base de donnée#_
 
-image::/img2/create_db.png[]
-image::/img2/insertion-data.png[]
+image::/img2/create_db.PNG[]
+image::/img2/insertion-data.PNG[]
 
 
 _[red]#Afficher la liste des pays d'un continent demandée#_
