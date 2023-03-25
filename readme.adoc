@@ -2,17 +2,31 @@
 :toc:
 == Sommaire
 
-CHONG TOUA Joshua
+[%header%footer,cols="2,2s,3",grid=rows,frame=topbot,width=100%,caption=Organisation]
+|===
+|Nom |fonctions |Github
 
-SIMOES David
+|CHONG TOUA Joshua
+^m|Chef d'équipe/Programmeur
+|https://github.com/JoshuaChongToua/GeoWorld.git
 
-BEN BOUBAKER Sheinez
+|SIMOES David
+^m|Programmeur
+|https://github.com/Simoes-david
+
+|BEN BOUBAKER Sheinez
+^m|Programmeur
+|https://github.com/Sheinezbenbk
+
+3+^.e|membres de l'équipe JDS
+|===
+ 
 
 Date : 22/03/2023
 
 == Contexte
 
-Projet GEOWORLD, site qui permet d'afficher les pays de chaque continent avec une gestion des utilisateurs.
+Ce compte rendue donne une vision global du Projet, intutulé GEOWORLD, c'est une crétion d'un site qui nous permet d'afficher les pays de chaque continent avec une gestion des utilisateurs.
 
 == Introduction
 
