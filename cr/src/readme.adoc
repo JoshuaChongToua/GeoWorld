@@ -1,23 +1,42 @@
-
 = Compte-rendu GEOWORLD
-
+:toc:
 == Sommaire
 
-* Introduction
-* Développement du site web
-* CSS
+[%header%footer,cols="2,2s,3",grid=rows,frame=topbot,width=100%,caption=Organisation]
+|===
+|Nom |fonctions |Github
+
+|CHONG TOUA Joshua
+^m|Chef d'équipe/Programmeur
+|https://github.com/JoshuaChongToua/GeoWorld.git
+
+|SIMOES David
+^m|Programmeur
+|https://github.com/Simoes-david
+
+|BEN BOUBAKER Sheinez
+^m|Programmeur
+|https://github.com/Sheinezbenbk
+
+3+^.e|membres de l'équipe JDS
+|===
+
+
+Date : 22/03/2023
+
+== Contexte
+
+Ce compte rendue donne une vision global du Projet, intutulé GEOWORLD, c'est une crétion d'un site qui nous permet d'afficher les pays de chaque continent avec une gestion des utilisateurs.
 
 == Introduction
-
-
 
 Dans un premier temps, avant de concevoir notre site internet, nous avons fait des TD PRELIMINAIRES, individuellement, qui étaient mis sur Trello.
 Plusieurs tâches nous étaient demandées :
 
 _[red]#Création de notre base de donnée#_
 
-image::../../img2/create_db.png[db,200,50]
-image::../../img2/insertion-data.PNG[db,350,50]
+image::../../img2/create_db.PNG[]
+image::../../img2/insertion-data.PNG[]
 
 
 _[red]#Afficher la liste des pays d'un continent demandée#_
@@ -40,12 +59,18 @@ _[red]#Configurer le dropdown#_
 
 _[red]#Test qualité du code : PHPSniffer#_
 
-image::../../img2/code.png[code, 1000, 300]
-image::../../img2/erreur.png[code, , 300]
+image::../../img2/code.png[]
+image::../../img2/erreur.png[]
+
+_[red]#IDE utilisé#_
+
+Durant le projet nous avons utilisé l'IDE Visual Studio CODE
+
+image::../../img2/vcide.png[]
 
 == Développement du Site
 
-*/!\ Avant toute utilisation du site internet il faut créer une table "identification" dans la db geoworld :*
+*/!\ Avant toute utilisation du site internet il faut créer une table "identification" dans la base de donnée geoworld :*
 [source, mysql]
 ----
 CREATE TABLE `identification` (
@@ -64,7 +89,7 @@ AUTO_INCREMENT=3
 ----
 
 
-Suite à notre tableau des pays d'un continent saisi, nous avons ajoutés la population ainsi que les langues principalement parlées :
+Suite à notre tableau des pays d'un continent choisi, nous avons ajoutés la population ainsi que les langues parlées :
 [source, php]
 ----
  $langue=getLangue($nomPays);
@@ -88,6 +113,28 @@ Suite à notre tableau des pays d'un continent saisi, nous avons ajoutés la pop
                 </div></span> </td>
 
 ----
+Voici ce que nous permet d'obtenir le programme ci-dessus:
+
+image::../../img2/langueUI.png[]
+
+Le code qui se situe dans la balise span ci-dessus nous permet d'obtenir ceci lorsque l'on pointe le curseur sur la langue:
+
+image::../../img2/infobulle.png[align=center]
+
+La fonction suivante nous permet d'obtenir le nom de la ville, qui est la capitale d'un pays, grâce à son id.
+[source,php]
+----
+function getCapital($capitale)
+{
+    global $pdo;
+    $query = 'SELECT Name FROM city WHERE id=:capitale;';
+    $prep = $pdo->prepare($query);
+    $prep->bindValue(':capitale', $capitale, PDO::PARAM_INT);
+    $prep->execute();
+    return $prep->fetchAll();
+}
+----
+Le code suivant va nous permettre d'afficher le nom des capitales des pays dans un tableau.
 [source, php]
 ----
 <?php
@@ -101,6 +148,8 @@ $capitale = getCapital($cap);
                 <?php endif; ?>
 ----
 
+image::../../img2/capitalUI.png[]
+
 Ensuite, nous avons ajoutés la connexion des comptes à partir du login et du password que l'on rentre sur la page login via le site :
 
 [source, html]
@@ -111,31 +160,80 @@ Ensuite, nous avons ajoutés la connexion des comptes à partir du login et du p
                     <input type="submit" value="Connexion">
 </form>
 ----
-si le login et le mot de passe ne correspond pas à notre base de donnée, alors l'utilisateur devra créer un compte et entrer plusieurs informations :
+
+image::../../img2/login.png[align=center]
+
+Si l'utilisateur ne possède pas de compte, il peut créer un compte et entrer plusieurs informations :
 [source, html]
 ----
- <form method="get" action="insertSQL.php">
-        Nom : <input type="text" name="nom" class="nom"><br>
-        Prenom : <input type="text" name="prenom"><br>
-        Login:<input type="text" name="login"><br>
-        MDP:<input type="password" name="password"><br>
+<form method="get" action="Signup.php">
+    Nom :
+    <input type="text" name="nom" class="nom" required placeholder="Name" autocomplete="off"><br>
+    Prenom :
+    <input type="text" name="prenom" required placeholder="First Name" autocomplete="off"><br>
+    Login:
+    <input type="text" name="login" required placeholder="Login" autocomplete="off"><br>
+    MDP:
+    <input type="password" name="password" required placeholder="Password" autocomplete="off"><br>
+    <input type="hidden" name="role" value="visiteur">
+    <input type="submit" name="submit" value="VALIDER">
+    <input type="reset" value="EFFACER" >
 </form>
 ----
 
+image::../../img2/inscription.png[align=center]
+
 En s'incrivant, toute individus à comme rôle "visiteur", ce rôle permet simplement de visiter le site.
-Seul l'administrateur peut modifier le rôle de n'importe quel utilisateur.
+Seul l'administrateur peut modifier les données et le rôle de n'importe quel utilisateur.
+
+Le code ci-dessous permet d'afficher le bouton "Liste utilisateurs" dans le header si le rôle de la personne connectée
+est "admin":
+
+[source,php,html]
+----
+<?php if($_SESSION['role']=='admin') : ?>
+          <li class="nav-item">
+              <a class="nav-link" href="listeUtilisateurs.php"> Liste Utilisateurs</a>
+          </li>
+
+<?php endif; ?>
+----
+
+image::../../img2/button.png[]
+
+En cliquant sur "Liste utilisateurs" on arrive sur cette page:
+
+image::../../img2/listeutil.png[]
+
+Ici, l'administrateur va pouvoir modifier les données des utilsateurs en cliquant sur "update".
 
 [source, html]
 ----
-Role:
- <select name="role">
- <option value="prof">prof</option>
- <option value="eleve">eleve</option>
- <option value="admin">admin</option>
- </select>
+<form action="updateutil.php" method="get">
+<label>Nom : </label>
+    <input type="text" name="nom" required value="<?php echo $salarie->nom; ?>" /> <br />
+<label>Prénom :</label>
+    <input type="text" name="prenom" required value="<?php echo $salarie->prenom; ?>" /> <br />
+
+<label>Login:</label>
+    <input type="text" name="login" value="<?php echo $salarie->login; ?>"/> <br />
+
+<label>Role:</label>
+    <select name="role">
+        <option value="prof">prof</option>
+        <option value="eleve">eleve</option>
+        <option value="admin">admin</option>
+    </select>
+</form>
 ----
 
-Ensuite, ce code va nous permettre de mettre à jour les données :
+image::../../img2/updateutil.png[align=center]
+
+Ensuite, en ce qui concerne les données des pays, seul les utilisateurs qui possèdent le role "prof" ou "admin"
+vont pouvoir mettre à jour les données à l'aide du button update:
+
+image::../../img2/updatepays.png[]
+
 [source, html]
 ----
 <label>Nom :</label>
@@ -148,24 +246,49 @@ Ensuite, ce code va nous permettre de mettre à jour les données :
     <input type="text" name="Capital" value="<?php echo $nomCap; ?>"/> <br />
 ----
 
+image::../../img2/formupdatepays.png[align=center]
+
 == CSS
 
 En ce qui concerne la partie esthétique de notre site nous avons utilisé le langage CSS; voici un exemple montrant la forme du code :
 
 [source, css]
 ----
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family:  cursive;
+}
 
-  /* style du titre */
-  h1 {
-    font-size: 36px;
-    text-align: center;
-    color: #333;
-    margin-top: 50px;
+tr:nth-child(odd) {
+    background-image: linear-gradient(to bottom, hsl(0, 4%, 63%), #837676); /* Dégradé de couleur entre les lignes */
+}
+
+tr:nth-child(even) {
+    background-image: linear-gradient(to bottom, #837676, hsl(0, 4%, 63%)); /* Dégradé de couleur entre les lignes */
+}
+
+label{
+    background-image: linear-gradient(to bottom, #662b2b, hsl(0, 4%, 63%)); /* Dégradé de couleur entre les lignes */
+}
+
+h1{
+    margin-top: 15px;
   }
 ----
+Le code ci-dessus nous permet d'obtenir le fond de couleur du tableau ci-dessous:
 
+image::../../img2/cssindex.png[]
 
-====== CHONG TOUA Joshua
-===== SIMOES David
-===== BEN BOUBAKER Sheinez
-==== lien github : https://github.com/JoshuaChongToua/GeoWorld.git
+== Extra
+
+La barre de recherche est exploitable, il suffit de rentrer le nom d'un pays et ses informations vous seront
+retournés:
+
+image::../../img2/barre.png[]
+
+== Lien
+
+lien github : https://github.com/JoshuaChongToua/GeoWorld.git
+
+lien gitlab : https://gitlab.com/JoshuaChongToua/GeoWorld.git
